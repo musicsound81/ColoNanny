@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SparkClean Pro – Professional House Cleaning Services</title>
+<meta name="description" content="Expert house cleaning services. Trusted, insured, and background-checked cleaners. Book your first clean today!">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --teal: #0D7377;
+    --teal-light: #14A085;
+    --cream: #FAF8F3;
+    --sand: #F0EBE0;
+    --charcoal: #1C1C1C;
+    --muted: #6B6B6B;
+    --white: #FFFFFF;
+    --accent: #E8B86D;
+    --radius: 12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--teal);
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    padding: 8px 16px;
+    letter-spacing: 0.3px;
+  }
+  .topbar strong { color: var(--accent); }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 5%;
+    border-bottom: 1px solid #e8e2d9;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,.06);
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--teal);
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  .nav-cta {
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+  }
+  .nav-cta:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0D7377 0%, #14A085 60%, #0a5c60 100%);
+    color: #fff;
+    padding: 60px 5% 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.04);
+    top: -150px; right: -100px;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--charcoal);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 16px;
+    opacity: .88;
+    max-width: 440px;
+    margin-bottom: 28px;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--charcoal);
+    border: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity .2s, transform .15s;
+  }
+  .btn-primary:hover { opacity: .88; transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,.5);
+    padding: 13px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color .2s;
+  }
+  .btn-outline:hover { border-color: #fff; }
+
+  /* FORM CARD */
+  .hero-form {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.2);
+    color: var(--charcoal);
+    animation: slideUp .6s ease both;
+  }
+  @keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .hero-form h2 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 6px; }
+  .hero-form p { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: .5px; }
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #e0dbd0;
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    background: var(--cream);
+    transition: border-color .2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus { border-color: var(--teal); }
+  .form-submit {
+    width: 100%;
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background .2s;
+  }
+  .form-submit:hover { background: var(--teal-light); }
+  .form-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; }
+  .form-note a { color: var(--teal); text-decoration: none; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--white);
+    border-bottom: 1px solid #eee;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--charcoal); }
+  .trust-icon { font-size: 18px; }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 60px 5%; }
+  .section-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 10px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 900; margin-bottom: 14px; }
+  .section-sub { color: var(--muted); max-width: 520px; }
+
+  /* ── SERVICES ── */
+  .services { background: var(--sand); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 36px; }
+  .service-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1.5px solid transparent;
+    transition: border-color .2s, transform .2s, box-shadow .2s;
+    cursor: default;
+  }
+  .service-card:hover { border-color: var(--teal); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(13,115,119,.1); }
+  .service-icon { font-size: 32px; margin-bottom: 14px; }
+  .service-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .service-card p { font-size: 13px; color: var(--muted); }
+  .service-price { margin-top: 14px; font-size: 18px; font-weight: 700; color: var(--teal); }
+
+  /* ── HOW IT WORKS ── */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 36px; }
+  .step { text-align: center; padding: 12px; }
+  .step-num {
+    width: 52px; height: 52px;
+    background: var(--teal);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    margin: 0 auto 16px;
+  }
+  .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .step p { font-size: 13px; color: var(--muted); }
+
+  /* ── REVIEWS ── */
+  .reviews { background: var(--sand); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 36px; }
+  .review-card { background: var(--white); border-radius: 16px; padding: 24px; }
+  .stars { color: #F5A623; font-size: 16px; margin-bottom: 12px; }
+  .review-card p { font-size: 14px; color: var(--charcoal); line-height: 1.7; font-style: italic; margin-bottom: 14px; }
+  .reviewer { display: flex; align-items: center; gap: 10px; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--teal); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; }
+  .reviewer-info strong { font-size: 14px; display: block; }
+  .reviewer-info span { font-size: 12px; color: var(--muted); }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: linear-gradient(120deg, #0D7377, #14A085);
+    color: #fff;
+    text-align: center;
+    padding: 60px 5%;
+  }
+  .cta-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 40px); margin-bottom: 14px; }
+  .cta-banner p { opacity: .85; max-width: 480px; margin: 0 auto 28px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    color: #aaa;
+    padding: 40px 5% 20px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+  .footer-brand .logo { color: #fff; display: block; margin-bottom: 10px; }
+  .footer-brand p { font-size: 13px; line-height: 1.7; }
+  footer h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 8px; }
+  footer ul li a { color: #aaa; text-decoration: none; font-size: 13px; transition: color .2s; }
+  footer ul li a:hover { color: #fff; }
+  .footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .footer-bottom a { color: #aaa; text-decoration: none; }
+  .footer-bottom a:hover { color: #fff; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 999;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+  .modal {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 680px;
+    width: 100%;
+    margin-top: 40px;
+    padding: 36px;
+    position: relative;
+  }
+  .modal h2 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 18px; }
+  .modal h3 { font-size: 15px; font-weight: 700; margin: 20px 0 6px; color: var(--teal); }
+  .modal p, .modal li { font-size: 13.5px; color: #444; line-height: 1.75; }
+  .modal ul { padding-left: 18px; margin-bottom: 8px; }
+  .modal-close {
+    position: absolute; top: 16px; right: 18px;
+    background: none; border: none; font-size: 24px; cursor: pointer; color: #999;
+  }
+  .modal-close:hover { color: #333; }
+  .modal-date { font-size: 12px; color: #999; margin-bottom: 18px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding: 40px 5%; }
+    .hero-form { margin-top: 8px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .trust-bar { gap: 20px; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  🎉 <strong>Limited Offer:</strong> Get 20% OFF your first cleaning — Use code <strong>SPARK20</strong> at checkout!
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">Spark<span>Clean</span> Pro</a>
+  <a class="nav-cta" href="#book">Get a Free Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">✦ Trusted by 10,000+ Homeowners</div>
+    <h1>A Spotless Home,<br>Every Single Time.</h1>
+    <p>Professional, insured, and background-checked house cleaners ready to transform your home. Flexible scheduling. Satisfaction guaranteed.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#book">Book Your Clean →</a>
+      <a class="btn-outline" href="#how-it-works">See How It Works</a>
+    </div>
+  </div>
+  <div class="hero-form" id="book">
+    <h2>Get Your Free Quote</h2>
+    <p>Takes less than 60 seconds. No commitment required.</p>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Jane Smith" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+1 (555) 000-0000" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@email.com" required>
+      </div>
+      <div class="form-group">
+        <label>Service Type</label>
+        <select>
+          <option>Standard Home Cleaning</option>
+          <option>Deep Cleaning</option>
+          <option>Move In / Move Out</option>
+          <option>Office Cleaning</option>
+          <option>Post-Renovation</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>ZIP / Postal Code</label>
+        <input type="text" placeholder="10001" required>
+      </div>
+      <button type="submit" class="form-submit">Get My Free Quote →</button>
+    </form>
+    <p class="form-note">By submitting, you agree to our <a href="#" onclick="openModal('privacy')">Privacy Policy</a> &amp; <a href="#" onclick="openModal('terms')">Terms of Service</a>.</p>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✅</span> Fully Insured &amp; Bonded</div>
+  <div class="trust-item"><span class="trust-icon">🔍</span> Background-Checked Staff</div>
+  <div class="trust-item"><span class="trust-icon">⭐</span> 4.9 / 5 Average Rating</div>
+  <div class="trust-item"><span class="trust-icon">🔄</span> 100% Satisfaction Guarantee</div>
+  <div class="trust-item"><span class="trust-icon">🌿</span> Eco-Friendly Products</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="section-label">What We Offer</div>
+  <div class="section-title">Cleaning Services Tailored to You</div>
+  <p class="section-sub">Whether it's a weekly touch-up or a full deep clean, we've got you covered.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3>Standard Cleaning</h3>
+      <p>Regular maintenance cleaning — dusting, vacuuming, mopping, and sanitizing bathrooms &amp; kitchen.</p>
+      <div class="service-price">From $89</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <h3>Deep Cleaning</h3>
+      <p>Intensive top-to-bottom clean including baseboards, inside appliances, and hard-to-reach areas.</p>
+      <div class="service-price">From $149</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <h3>Move In / Move Out</h3>
+      <p>Complete clean for transitions — meet landlord standards and ensure your deposit back.</p>
+      <div class="service-price">From $199</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏢</div>
+      <h3>Office Cleaning</h3>
+      <p>Scheduled commercial cleaning to keep your workspace fresh and professional.</p>
+      <div class="service-price">Custom Quote</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="section-label">Simple Process</div>
+  <div class="section-title">How It Works</div>
+  <p class="section-sub">Booking a professional clean takes just 3 easy steps.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Get a Quote</h3>
+      <p>Fill out our quick form and receive an instant, transparent price estimate — no hidden fees.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Schedule a Time</h3>
+      <p>Pick a date and time that works for your schedule. Same-day bookings often available.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Relax &amp; Enjoy</h3>
+      <p>Our vetted cleaners arrive on time and leave your home sparkling. 100% guaranteed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="section-label">Real Customers</div>
+  <div class="section-title">What Homeowners Are Saying</div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"SparkClean Pro transformed my apartment. The team was thorough, professional, and incredibly fast. Worth every penny!"</p>
+      <div class="reviewer">
+        <div class="avatar">S</div>
+        <div class="reviewer-info"><strong>Sarah M.</strong><span>New York, NY</span></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"I've tried several cleaning services and none come close. The deep clean before our holiday party was absolutely flawless."</p>
+      <div class="reviewer">
+        <div class="avatar">R</div>
+        <div class="reviewer-info"><strong>Roberto K.</strong><span>Austin, TX</span></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Reliable, friendly cleaners every single week. My house has never looked better. Highly recommend the eco-friendly option!"</p>
+      <div class="reviewer">
+        <div class="avatar">L</div>
+        <div class="reviewer-info"><strong>Linda P.</strong><span>Chicago, IL</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Ready for a Spotless Home?</h2>
+  <p>Join thousands of happy customers. Book your first clean today and get 20% off with code SPARK20.</p>
+  <a class="btn-primary" href="#book">Book Now — It's Free to Quote</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="#">SparkClean Pro</a>
+      <p>Professional house cleaning services you can trust. Fully insured, background-checked, and always on time.</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#book">Standard Cleaning</a></li>
+        <li><a href="#book">Deep Cleaning</a></li>
+        <li><a href="#book">Move In/Out</a></li>
+        <li><a href="#book">Office Cleaning</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="mailto:hello@sparkcleanpro.com">Contact Us</a></li>
+        <li><a href="tel:+18005551234">1-800-555-1234</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#" onclick="openModal('privacy')">Privacy Policy</a></li>
+        <li><a href="#" onclick="openModal('terms')">Terms of Service</a></li>
+        <li><a href="#" onclick="openModal('accessibility')">Accessibility</a></li>
+        <li><a href="#" onclick="openModal('refund')">Refund Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SparkClean Pro. All rights reserved. All prices are estimates and may vary by location.</span>
+    <span>
+      <a href="#" onclick="openModal('privacy')">Privacy</a> ·
+      <a href="#" onclick="openModal('terms')">Terms</a>
+    </span>
+  </div>
+</footer>
+
+<!-- ───────────────────────────── MODALS ───────────────────────────── -->
+
+<!-- PRIVACY POLICY MODAL -->
+<div class="modal-overlay" id="modal-privacy">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('privacy')">✕</button>
+    <h2>Privacy Policy</h2>
+    <p class="modal-date">Last updated: January 1, 2025</p>
+    <p>SparkClean Pro ("we," "us," or "our") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
+
+    <h3>1. Information We Collect</h3>
+    <p>We may collect the following types of information:</p>
+    <ul>
+      <li><strong>Personal Information:</strong> Name, phone number, email address, and ZIP code when you request a quote or book a service.</li>
+      <li><strong>Usage Data:</strong> IP address, browser type, pages visited, and time spent on our site via cookies and analytics tools.</li>
+      <li><strong>Payment Information:</strong> Processed securely through our payment processors. We do not store your full card details.</li>
+    </ul>
+
+    <h3>2. How We Use Your Information</h3>
+    <ul>
+      <li>To provide and improve our cleaning services</li>
+      <li>To contact you regarding quotes, bookings, and service updates</li>
+      <li>To send promotional offers (you may opt out at any time)</li>
+      <li>To comply with legal obligations</li>
+      <li>To improve our website experience through analytics</li>
+    </ul>
+
+    <h3>3. Google Ads &amp; Advertising</h3>
+    <p>We use Google Ads to advertise our services. Google may use cookies to serve ads based on your prior visits to our website or other websites. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank">Google Ads Settings</a>.</p>
+
+    <h3>4. Cookies</h3>
+    <p>We use cookies and similar tracking technologies to track activity on our website. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features of our website may not function properly without cookies.</p>
+
+    <h3>5. Third-Party Sharing</h3>
+    <p>We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website and conducting our business, subject to confidentiality agreements.</p>
+
+    <h3>6. Data Retention</h3>
+    <p>We retain your personal data only as long as necessary to fulfill the purposes outlined in this policy or as required by law.</p>
+
+    <h3>7. Your Rights</h3>
+    <ul>
+      <li>Access, correct, or delete your personal data</li>
+      <li>Opt out of marketing communications</li>
+      <li>Request data portability (where applicable)</li>
+    </ul>
+
+    <h3>8. Children's Privacy</h3>
+    <p>Our services are not directed to individuals under 13 years of age. We do not knowingly collect personal information from children.</p>
+
+    <h3>9. Contact Us</h3>
+    <p>For privacy inquiries, contact us at: <a href="mailto:privacy@sparkcleanpro.com">privacy@sparkcleanpro.com</a> or 1-800-555-1234.</p>
+  </div>
+</div>
+
+<!-- TERMS OF SERVICE MODAL -->
+<div class="modal-overlay" id="modal-terms">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('terms')">✕</button>
+    <h2>Terms of Service</h2>
+    <p class="modal-date">Last updated: January 1, 2025</p>
+    <p>Please read these Terms of Service carefully before using SparkClean Pro's website or booking our services. By accessing or using our services, you agree to be bound by these Terms.</p>
+
+    <h3>1. Services</h3>
+    <p>SparkClean Pro provides residential and commercial cleaning services. All quoted prices are estimates and final pricing may vary based on property size, condition, and location. We reserve the right to adjust pricing upon service inspection.</p>
+
+    <h3>2. Booking &amp; Scheduling</h3>
+    <ul>
+      <li>Bookings are confirmed upon receipt of a confirmation email or call from our team.</li>
+      <li>You must provide accurate information regarding your property and access instructions.</li>
+      <li>SparkClean Pro is not responsible for delays caused by incorrect or incomplete information provided by the customer.</li>
+    </ul>
+
+    <h3>3. Cancellation Policy</h3>
+    <ul>
+      <li>Cancellations made 24+ hours before the scheduled appointment: Full refund or reschedule at no charge.</li>
+      <li>Cancellations made within 24 hours: A cancellation fee of $25 may apply.</li>
+      <li>No-shows or lockouts (cleaner cannot gain access): Full service fee may be charged.</li>
+    </ul>
+
+    <h3>4. Satisfaction Guarantee</h3>
+    <p>If you are not satisfied with your cleaning, please contact us within 24 hours. We will re-clean the affected areas at no additional cost. Refunds are issued at our sole discretion and are subject to review.</p>
+
+    <h3>5. Liability</h3>
+    <p>SparkClean Pro is fully insured. In the event of damage caused by our cleaners, please report it within 48 hours. Our liability is limited to the cost of repair or replacement of the damaged item, up to a maximum of $1,000 per incident, unless covered by our insurance policy.</p>
+    <p>We are not liable for pre-existing damage, normal wear and tear, or damage resulting from improper installation or maintenance of your property.</p>
+
+    <h3>6. Promotional Offers</h3>
+    <p>Promotional codes (such as SPARK20) are valid for first-time customers only, cannot be combined with other offers, and may be withdrawn at any time. One code per customer.</p>
+
+    <h3>7. Intellectual Property</h3>
+    <p>All content on this website, including text, graphics, logos, and images, is the property of SparkClean Pro and is protected by applicable intellectual property laws.</p>
+
+    <h3>8. Governing Law</h3>
+    <p>These Terms are governed by the laws of the State of New York, without regard to its conflict of law provisions.</p>
+
+    <h3>9. Changes to Terms</h3>
+    <p>We reserve the right to update these Terms at any time. Continued use of our services following any changes constitutes your acceptance of the revised Terms.</p>
+
+    <h3>10. Contact</h3>
+    <p><a href="mailto:legal@sparkcleanpro.com">legal@sparkcleanpro.com</a> | 1-800-555-1234</p>
+  </div>
+</div>
+
+<!-- ACCESSIBILITY MODAL -->
+<div class="modal-overlay" id="modal-accessibility">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('accessibility')">✕</button>
+    <h2>Accessibility Statement</h2>
+    <p class="modal-date">Last updated: January 1, 2025</p>
+    <p>SparkClean Pro is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards.</p>
+    <h3>Measures We Take</h3>
+    <ul>
+      <li>Semantic HTML with appropriate ARIA labels</li>
+      <li>Sufficient color contrast ratios (WCAG AA compliant)</li>
+      <li>Keyboard-navigable interface</li>
+      <li>Descriptive alt text for images</li>
+    </ul>
+    <h3>Known Limitations</h3>
+    <p>We are actively working to improve accessibility across all pages. If you encounter any barriers, please contact us.</p>
+    <h3>Feedback</h3>
+    <p>Email: <a href="mailto:accessibility@sparkcleanpro.com">accessibility@sparkcleanpro.com</a></p>
+  </div>
+</div>
+
+<!-- REFUND POLICY MODAL -->
+<div class="modal-overlay" id="modal-refund">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('refund')">✕</button>
+    <h2>Refund Policy</h2>
+    <p class="modal-date">Last updated: January 1, 2025</p>
+    <p>Your satisfaction is our priority. SparkClean Pro offers the following refund and re-clean policy:</p>
+    <h3>Re-Clean Guarantee</h3>
+    <p>If you are not satisfied with your service, contact us within 24 hours and we will return to re-clean the unsatisfactory areas at no charge.</p>
+    <h3>Cash Refunds</h3>
+    <ul>
+      <li>Refunds are considered on a case-by-case basis after the re-clean option has been offered.</li>
+      <li>Partial refunds may be issued for missed or skipped areas reported within 24 hours.</li>
+      <li>Full refunds are not issued once service has been rendered, except in cases of verified negligence or damage.</li>
+    </ul>
+    <h3>Cancellation Refunds</h3>
+    <ul>
+      <li>Cancelled 24+ hours before appointment: Full refund within 5–7 business days.</li>
+      <li>Cancelled within 24 hours: Refund minus $25 cancellation fee.</li>
+    </ul>
+    <h3>Contact</h3>
+    <p><a href="mailto:billing@sparkcleanpro.com">billing@sparkcleanpro.com</a> | 1-800-555-1234</p>
+  </div>
+</div>
+
+<script>
+  // Modal controls
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+    event.preventDefault();
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Close on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Request Received! We\'ll Call You Shortly.';
+    btn.style.background = '#2d9e5e';
+    btn.disabled = true;
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .step, .review-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
